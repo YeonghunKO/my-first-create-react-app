@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { choice, remove } from './helper';
+import fruit from './food';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+class App extends React.Component {
+  render() {
+    const chosenFruit = choice(fruit);
+    const removedFruit = remove(fruit, chosenFruit);
+    console.log(chosenFruit, removedFruit, fruit);
+    return (
+      <div>
+        <p>I'd like one {chosenFruit}, please</p>
+        <p>Here you go {removedFruit}</p>
+        <p>Delicious, May I have another one bitch?</p>
         <p>
-          Edit <code>src/App.js</code> and save to reload. why?
+          I'm sorry we're all out. But, we have another {fruit.length} fruits
+          lefts
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 export default App;
